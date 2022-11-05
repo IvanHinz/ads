@@ -15,7 +15,7 @@ std::vector < int > CreateVector(int number) {
 
 //searching for borders
 void Search(std::vector < int > main_vec, int sr_value) {
-  int l = 0, r = main_vec.size(), mid;
+  int l = 0, r = main_vec.size(), mid = 0;
   bool found = false;
   //for left corner;
   while ((l <= r) && (found != true)) {
@@ -27,9 +27,11 @@ void Search(std::vector < int > main_vec, int sr_value) {
   }
 
   int left_number = mid, right_number = mid;
-
-  while (main_vec[left_number - 1] == sr_value) {
+  
+  if (left_number - 1 >= 0){
+    while (main_vec[left_number - 1] == sr_value) {
     --left_number;
+    }
   }
   while (main_vec[right_number + 1] == sr_value) {
     ++right_number;
@@ -37,7 +39,7 @@ void Search(std::vector < int > main_vec, int sr_value) {
   if (found == false) {
     std::cout << -1 << " " << -1;
   } else {
-    int left_number = mid, right_number = mid;
+    left_number = mid, right_number = mid;
     while (main_vec[left_number - 1] == sr_value) {
       --left_number;
     }
